@@ -1,7 +1,8 @@
 resource "azurerm_resource_group" "rg" {
-    name = var.resource_group_name
-    location = var.location
+  name     = "${var.resource_group_name}-${formatdate("YYYYMMDDhhmm", timestamp())}"
+  location = var.location
 }
+
 
 resource "azurerm_network_security_group" "example_nsg" {
     name = "iac-devops-nsg"
